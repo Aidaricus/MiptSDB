@@ -131,4 +131,24 @@ print(time.time() - start_time)
 ![image](https://github.com/Aidaricus/MiptSDB/assets/108796735/884b28b6-b8e0-461e-be61-14f9d3383fae)
 
 
+## CLUSTERS
+
+Добавим три порта 7000, 7001, 7002
+В каждом добавим файл redis.conf со следующим содержимым 
+
+```
+port 7001
+cluster-enabled yes
+cluster-config-file nodes.conf
+cluster-node-timeout 5000
+appendonly yes
+```
+Делаем так для всех портов:7000, 7001, 7002
+
+Запускаем с помощью команды: 
+```
+redis-cli --cluster create 127.0.0.1:7002 127.0.0.1:7001 127.0.0.1:7000 --cluster-replicas 0
+```
+
+В каждом кластере запускаем скрипт по созданию записей тремя различными способами.
 
