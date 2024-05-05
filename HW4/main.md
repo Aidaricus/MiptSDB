@@ -133,4 +133,43 @@ CREATE INDEX index_name ON table_name(column_name);
 
 - Документация и обучение: https://github.com/infiniflow/infinity/blob/main/docs/references/pysdk_api_reference.md
 
-- 
+### Практический пример
+
+Для начала, давай создадим таблицу "Пользователи" и добавим в нее несколько записей. Затем мы выполним операции CRUD над этими данными.
+
+Создание таблицы "Пользователи":
+```sql
+    CREATE TABLE Users (
+    UserID INT PRIMARY KEY,
+    Name VARCHAR(50),
+    Age INT,
+    Email VARCHAR(50)
+);
+```
+
+2. Добавление данных в таблицу:
+```sql
+INSERT INTO Users (UserID, Name, Age, Email) VALUES (1, 'Alice', 25, 'alice@example.com');
+INSERT INTO Users (UserID, Name, Age, Email) VALUES (2, 'Bob', 30, 'bob@example.com');
+INSERT INTO Users (UserID, Name, Age, Email) VALUES (3, 'Charlie', 22, 'charlie@example.com');
+
+```
+
+3. Чтение данных из таблицы:
+
+```sql
+SELECT * FROM Users;
+```
+
+4. Обновление данных в таблице:
+
+```sql
+UPDATE Users SET Age = 26 WHERE UserID = 1;
+```
+
+5. Удаление данных из таблицы:
+```sql
+DELETE FROM Users WHERE UserID = 3;
+```
+
+Это простой пример того, как можно использовать InfinityDB для работы с данными и выполнения операций CRUD
